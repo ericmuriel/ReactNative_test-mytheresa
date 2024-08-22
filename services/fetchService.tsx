@@ -6,7 +6,6 @@ const API_URL = 'https://api.themoviedb.org/3/movie/top_rated';
 
 const FetchMoviesComponent: React.FC = () => {
   const { setData, setIsLoading } = useContext(GenericContext);
-
   useEffect(() => {
     setIsLoading(true);
     fetch(API_URL, {

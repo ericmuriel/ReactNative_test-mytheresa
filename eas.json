@@ -2,21 +2,17 @@
   "cli": {
     "version": ">= 10.2.2"
   },
- "build": {
-  "main": {
-    "developmentClient": true,
-    "distribution": "internal"
-  },
-    "ios": {
-      "workflow": "managed"
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
     },
-    "android": {
-      "workflow": "managed"
+    "production": {
+      "distribution": "store"
     },
     "preview": {
       "distribution": "internal"
-    },
-    "production": {}
+    }
   },
   "submit": {
     "production": {}
