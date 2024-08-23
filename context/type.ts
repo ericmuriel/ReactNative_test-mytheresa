@@ -17,15 +17,14 @@ export interface Movie {
     vote_count: number;
   }
 
-export interface GenericContextValue{
-    data: Movie[],
-    setData: Dispatch<SetStateAction<Movie[]>>
-    loading:boolean ,
-    setIsLoading: Dispatch<SetStateAction<boolean>>,
-    movies: Movie[],
+  export interface GenericContextValue {
+    data: Movie[];
+    setData: Dispatch<SetStateAction<Movie[]>>;
+    loading: boolean;
+    setIsLoading: Dispatch<SetStateAction<boolean>>;
+    movies: Movie[];
     setMovies: React.Dispatch<React.SetStateAction<Movie[]>>;
     wishlist: Movie[];
     addToWishlist: (film: Movie) => void;
-    removeFromWishlist:(num: number) => void;
-
-}
+    removeFromWishlist: (id: number) => void;
+  }

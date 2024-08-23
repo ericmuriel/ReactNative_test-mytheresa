@@ -13,7 +13,7 @@ type Theme = {
   };
 };
 
-const lightTheme: Theme = {
+export const lightTheme: Theme = {
   primary: '#6200ea',
   background: '#ffffff',
   text: '#000000',
@@ -38,7 +38,7 @@ const lightTheme: Theme = {
   }),
 };
 
-const ThemeContext = createContext<Theme>(lightTheme);
+export const ThemeContext = createContext<Theme>(lightTheme);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   return (

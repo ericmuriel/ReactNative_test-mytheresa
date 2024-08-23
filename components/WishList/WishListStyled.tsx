@@ -29,7 +29,9 @@ export const StyledText = styled.Text`
   font-weight: bold;
 `;
 
-export const CloseButton = styled.TouchableOpacity`
+export const CloseButton = styled.TouchableOpacity.attrs({
+  testID: 'close-button',
+})`
   padding: 10px;
 `;
 

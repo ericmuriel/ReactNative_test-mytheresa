@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { View, Text, Button, Image, ScrollView, TouchableOpacity, Modal } from 'react-native';
+import { View, Text, Button, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { genreMap } from '../../utils/GenreMap';
 import { genreStyles } from '../../utils/GenreStyles';
 import { GenericContext } from '../../context/GenericContext';
@@ -11,12 +11,12 @@ import {
   FilmImage,
   AdditionalInfo,
   ReadMore,
-  ModalContainer,
-  ModalContent,
   ButtonContainer,
   Text as StyledText
 } from './FilmDetailStyled';
 import { useTheme } from '@/constants/ThemeContext';
+import FilmDetailModal from './ModalFilmDetail/ModalFilmDetail';
+
 
 const FilmDetail = ({ route }: any) => {
   const { film } = route.params;
@@ -83,32 +83,13 @@ const FilmDetail = ({ route }: any) => {
           <StyledText>Vote Count: {film.vote_count}</StyledText>
         </AdditionalInfo>
 
-        <Modal
-          animationType="slide"
-          transparent={true}
+        <FilmDetailModal
           visible={modalVisible}
-          onRequestClose={() => setModalVisible(false)}
-        >
-          <ModalContainer>
-            <ModalContent>
-              <StyledText style={{ fontFamily: genreStyle.fontFamily || 'default', fontSize: 24, fontWeight: 'bold' }}>
-                {film.title}
-              </StyledText>
-              <ScrollView>
-                <StyledText style={{ fontFamily: genreStyle.fontFamily || 'default', fontSize: 16 }}>
-                  {film.overview}
-                </StyledText>
-              </ScrollView>
-              <ButtonContainer>
-                <Button
-                  title="Close"
-                  color={genreStyle.buttonColor || theme.styles.button.backgroundColor}
-                  onPress={() => setModalVisible(false)}
-                />
-              </ButtonContainer>
-            </ModalContent>
-          </ModalContainer>
-        </Modal>
+          onClose={() => setModalVisible(false)}
+          film={film}
+          genreStyle={genreStyle}
+          theme={theme}
+        />
       </ScrollView>
     </View>
   );

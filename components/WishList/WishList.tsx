@@ -27,7 +27,7 @@ const WishlistScreen: React.FC = () => {
             />
             <TextContainer>
               <StyledText>{film.title}</StyledText>
-              <CloseButton onPress={() => removeFromWishlist(film.id)}>
+              <CloseButton testID='close-button' onPress={() => removeFromWishlist(film.id)}>
                 <Ionicons name="close" size={24} color="red" />
               </CloseButton>
             </TextContainer>

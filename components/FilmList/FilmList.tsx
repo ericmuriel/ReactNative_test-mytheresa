@@ -22,7 +22,10 @@ const FilmList: React.FC<any> = ({ navigation }) => {
   }));
 
   const renderFilmItem = ({ item }: { item: any }) => (
-    <TouchableOpacity onPress={() => navigation.navigate('Details', { film: item })}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('Details', { film: item })}
+      testID={`film-item-${item.id}`}
+    >
       <FilmCard>
         <FilmImage source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }} />
         <FilmTitle>{item.title}</FilmTitle>
@@ -33,7 +36,7 @@ const FilmList: React.FC<any> = ({ navigation }) => {
   return (
     <ScrollView style={theme.styles.container}>
       {sections.map((section, index) => (
-        <SectionContainer key={index}>
+        <SectionContainer key={index} testID={`section-${section.title}`}>
           <Text style={theme.styles.title}>{section.title}</Text>
           <FlatList
             data={section.films}
