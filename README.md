@@ -1,50 +1,80 @@
-# Welcome to your Expo app 👋
+This project is a technical test for Mytheresa, built with React Native, Styled Components, Jest, and TypeScript. The application displays a modal with film details and applies styles based on the genre of the film.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Project Overview
+   React Native: For building the mobile application.
+   Styled Components: For styling the components.
+   Jest: For running unit tests and ensuring code quality.
+   TypeScript: For adding static types to JavaScript.
+   
+Installation
+To get started with the project, follow these steps:
 
-## Get started
-
-1. Install dependencies
-
-   ```bash
+1-Clone the repository: 
+   git clone https://github.com/ericmuriel/testMovies.git
+   cd testMovies
+   
+2-Install dependencies:
    npm install
-   ```
 
-2. Start the app
+3-Run the application:
+   npm start
 
-   ```bash
-    npx expo start
-   ```
+4-Run the tests:
+   npm test
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Project Structure:
+   src/: Contains the source code for the application.
+      components/: Contains reusable components.
+      screens/: Contains screen components like FilmDetailModal.
+      styles/: Contains styled components and theme definitions.
+   tests/: Contains test files.
+   App.tsx: Entry point for the application.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+FilmDetailModal Component
+   The FilmDetailModal component displays details about a film in a modal view. It supports dynamic styling based on the genre of the film and includes a close button.
 
-## Get a fresh project
+   Props
+      visible: Boolean flag to control the visibility of the modal.
+      onClose: Callback function triggered when the close button is pressed.
+      film: An object containing film details.
+      genreStyle: An object containing style properties based on the genre.
+      theme: Theme object for styling components.
 
-When you're ready, run:
+Example Usage
+<FilmDetailModal
+  visible={true}
+  onClose={() => {}}
+  film={{
+    title: 'Test Movie Title',
+    overview: 'This is a test movie overview. It is long enough to require scrolling in the modal view.',
+  }}
+  genreStyle={{
+    fontFamily: 'serif',
+    buttonColor: '#8B0000',
+  }}
+  theme={{
+    styles: {
+      button: {
+        backgroundColor: '#6200ea',
+      },
+    },
+  }}
+/>
 
-```bash
-npm run reset-project
-```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Testing
+   Tests are written using Jest and cover the following scenarios:
+   
+   Styling based on genre: Verifies that the styles applied to the title, overview text, and close button are correct based on the genre.
+   Visibility: Checks that the modal renders correctly when visible and does not render when hidden.
+   Button Functionality: Ensures that the close button calls the onClose function when pressed.
 
-## Learn more
+Running Tests
+   To run the tests, use the following command:
+      npm test
 
-To learn more about developing your project with Expo, look at the following resources:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Troubleshooting
+   If you encounter issues with the styling or props, ensure that the styles are being passed correctly and that the props are properly set in the components.
+   For issues with testing, check the console logs for detailed output on what is being tested and what might be failing.
